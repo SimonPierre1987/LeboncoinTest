@@ -14,6 +14,7 @@
 		EBAB7B6F2611B91F00A2F6AD /* LeboncoinTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B6E2611B91F00A2F6AD /* LeboncoinTestUITests.swift */; };
 		EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B932611C0D400A2F6AD /* Category.swift */; };
 		EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B9B2611C2BB00A2F6AD /* Product.swift */; };
+		EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		EBAB7B702611B91F00A2F6AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBAB7B932611C0D400A2F6AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EBAB7B9B2611C2BB00A2F6AD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */,
+				EBAB7BA02611C48400A2F6AD /* Repository */,
 				EBAB7B912611C08E00A2F6AD /* Model */,
 				EBAB7B502611B91E00A2F6AD /* ViewController.swift */,
 				EBAB7B552611B91F00A2F6AD /* Assets.xcassets */,
@@ -131,6 +134,14 @@
 				EBAB7B9B2611C2BB00A2F6AD /* Product.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EBAB7BA02611C48400A2F6AD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */,
+				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
 				EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */,
 				EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */,
