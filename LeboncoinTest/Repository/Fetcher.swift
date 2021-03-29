@@ -51,6 +51,6 @@ class Fetcher {
             }
 
             completion(.success((data, httpResponse)))
-        }
+        }.resume()
     }
 }
