@@ -10,12 +10,13 @@ import Foundation
 enum LeboncoinError: Error {
     case badURLFormat
     case badHTTPResponse
-    case emptyData
+    case missingData
     case parsingError(error: Error)
-    case other(error: Error)
+    case other(localizedDescription: String)
 }
 
 class Fetcher {
+    // MARK: - Functions
     func get<T: Decodable>(_ type: T.Type, at urlString: String,
                          _ completion: @escaping (Result<T, LeboncoinError>) -> Void) {
         getDataOnMainThread(at: urlString) { (result) in
@@ -53,7 +54,7 @@ private extension Fetcher {
 
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                completion(.failure(.other(error: error)))
+                completion(.failure(.other(localizedDescription: error.localizedDescription)))
                 return
             }
 
@@ -64,7 +65,7 @@ private extension Fetcher {
             }
 
             guard let data = data else {
-                completion(.failure(.emptyData))
+                completion(.failure(.missingData))
                 return
             }
 
