@@ -8,7 +8,15 @@
 import UIKit
 
 class ProductsViewController: UIViewController {
+    // MARK: Properties
     private let interactor: CategoryAndProductInteractor
+    private var collectionView: UICollectionView?
+    private let sectionInsets = UIEdgeInsets(
+      top: 50.0,
+      left: 20.0,
+      bottom: 50.0,
+      right: 20.0)
+
     // MARK: - Init
     init(interactor: CategoryAndProductInteractor) {
         self.interactor = interactor
@@ -23,7 +31,27 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        createCollectionView()
+        configureCollectionView()
         fetchAndDisplayProducts()
+    }
+}
+
+extension ProductsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return interactor.productsViewModels.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+        productCell.backgroundColor = UIColor.blue
+        return productCell
+    }
+}
+
+extension ProductsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        displayDetail(for: interactor.productsViewModels[indexPath.row])
     }
 }
 
@@ -47,7 +75,7 @@ private extension ProductsViewController {
             case let .failure(error):
                 strongSelf.display(error: error)
             case .success:
-                strongSelf.display(products: strongSelf.interactor.productsViewModels)
+                strongSelf.displayProducts()
             }
         }
     }
@@ -55,11 +83,11 @@ private extension ProductsViewController {
 
 // MARK: UI
 private extension ProductsViewController {
+
     func setupViews() {
         view.backgroundColor = .white
         title = "LeBonCoinTest"
     }
-
 
     func startLoading() {
         // TODO
@@ -73,7 +101,63 @@ private extension ProductsViewController {
         // TODO
     }
 
-    func display(products: [ProductViewModel]) {
-        // TODO
+    func displayProducts() {
+        collectionView?.reloadData()
+    }
+}
+
+private extension ProductsViewController {
+    func createCollectionView() {
+        let collectionViewContainer = UIView()
+        collectionViewContainer.backgroundColor = .yellow
+        view.addSubview(collectionViewContainer)
+        collectionViewContainer.pintTo(view)
+
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        guard let collectionView = collectionView else { return }
+        collectionViewContainer.addSubview(collectionView)
+        collectionView.pintTo(collectionViewContainer)
+    }
+
+    func configureCollectionView() {
+        guard let collectionView = collectionView else { return }
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView.backgroundColor = UIColor.red
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+}
+
+extension ProductsViewController: UICollectionViewDelegateFlowLayout {
+        func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            sizeForItemAt indexPath: IndexPath) -> CGSize {
+            guard let containerFrame = collectionView.superview?.frame else {
+                return CGSize.zero
+            }
+            let width = (containerFrame.width - sectionInsets.left - 2*sectionInsets.right) / 2
+            let height = width * 1.5
+            return CGSize(width: width,
+                          height: height)
+        }
+
+        func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+            return 1.0
+        }
+
+        func collectionView(_ collectionView: UICollectionView, layout
+            collectionViewLayout: UICollectionViewLayout,
+                            minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return sectionInsets.left
+        }
+
+    func collectionView(_ collectionView: UICollectionView,
+                          layout collectionViewLayout: UICollectionViewLayout,
+                          insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
     }
 }

@@ -23,6 +23,7 @@
 		EBAB7BDD2611F7FE00A2F6AD /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BDC2611F7FE00A2F6AD /* ProductViewModel.swift */; };
 		EBAB7BE42611F8E700A2F6AD /* ProductMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */; };
 		EBAB7BE926120F0B00A2F6AD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */; };
+		EBAB7BEF2612133C00A2F6AD /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BEE2612133C00A2F6AD /* UIView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EBAB7BDC2611F7FE00A2F6AD /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapper.swift; sourceTree = "<group>"; };
 		EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		EBAB7BEE2612133C00A2F6AD /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		EBAB7B4B2611B91E00A2F6AD /* LeboncoinTest */ = {
 			isa = PBXGroup;
 			children = (
+				EBAB7BED2612132900A2F6AD /* Helper */,
 				EBAB7BDB2611F7E600A2F6AD /* ViewModel */,
 				EBAB7BD22611F70A00A2F6AD /* Interactor */,
 				EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */,
@@ -198,6 +201,14 @@
 				EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		EBAB7BED2612132900A2F6AD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EBAB7BEE2612133C00A2F6AD /* UIView+Constraints.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 				EBAB7BE42611F8E700A2F6AD /* ProductMapper.swift in Sources */,
 				EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */,
 				EBAB7BD42611F72400A2F6AD /* CategoryAndProductInteractor.swift in Sources */,
+				EBAB7BEF2612133C00A2F6AD /* UIView+Constraints.swift in Sources */,
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
 				EBAB7BE926120F0B00A2F6AD /* ProductDetailViewController.swift in Sources */,
