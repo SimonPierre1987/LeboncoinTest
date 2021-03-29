@@ -16,6 +16,7 @@
 		EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B9B2611C2BB00A2F6AD /* Product.swift */; };
 		EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */; };
 		EBAB7BA72611C6CC00A2F6AD /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */; };
+		EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BAF2611CA6300A2F6AD /* Fetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		EBAB7B9B2611C2BB00A2F6AD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
 		EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
+		EBAB7BAF2611CA6300A2F6AD /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */,
 				EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */,
+				EBAB7BAF2611CA6300A2F6AD /* Fetcher.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */,
 				EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */,
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
