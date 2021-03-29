@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias CategoriesHandler = (Result<Categories, LeboncoinError>) -> Void
+typealias CategoriesHandler = (Result<[Category], LeboncoinError>) -> Void
 
 protocol CategoriesRepositoryProtocol {
     func fetchCategories(completion: @escaping CategoriesHandler)
@@ -24,9 +24,8 @@ class CategoriesRepository: CategoriesRepositoryProtocol {
 
     // MARK: - CategoriesRepositoryProtocol
     func fetchCategories(completion: @escaping CategoriesHandler) {
-        fetcher.getData(at: categoryUrlString) { (result) in
-            // TODO
-            completion(.failure(.emptyData))
+        fetcher.get([Category].self, at: categoryUrlString) { (result) in
+            completion(result)
         }
     }
 }

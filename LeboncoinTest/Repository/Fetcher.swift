@@ -11,23 +11,41 @@ enum LeboncoinError: Error {
     case badURLFormat
     case badHTTPResponse
     case emptyData
+    case parsingError(error: Error)
     case other(error: Error)
 }
 
 class Fetcher {
-    func getData(at urlString: String,
-                 _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
-        privateGetData(at: urlString) { (result) in
-            DispatchQueue.main.async {
-                completion(result)
+    func get<T: Decodable>(_ type: T.Type, at urlString: String,
+                         _ completion: @escaping (Result<T, LeboncoinError>) -> Void) {
+        getDataOnMainThread(at: urlString) { (result) in
+            switch result {
+            case let .failure(error):
+                completion(.failure(error))
+            case let .success((jsonData, _)):
+                do {
+                    let parsedData = try JSONDecoder().decode(type, from: jsonData)
+                    completion(.success(parsedData))
+                } catch {
+                    completion(.failure(.parsingError(error: error)))
+                }
             }
         }
     }
 }
 
 private extension Fetcher {
-    func privateGetData(at urlString: String,
-                        _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
+    func getDataOnMainThread(at urlString: String,
+                 _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
+        getData(at: urlString) { (result) in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+
+    func getData(at urlString: String,
+                 _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(.badURLFormat))
             return

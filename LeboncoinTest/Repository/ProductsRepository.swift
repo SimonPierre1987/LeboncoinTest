@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias ProductsHandler = (Result<Products, LeboncoinError>) -> Void
+typealias ProductsHandler = (Result<[Product], LeboncoinError>) -> Void
 
 protocol ProductsRepositoryProtocol {
     func fetchProducts(completion: @escaping ProductsHandler)
@@ -24,9 +24,8 @@ class ProductsRepository: ProductsRepositoryProtocol {
     
     // MARK: - ProductsRepositoryProtocol
     func fetchProducts(completion: @escaping ProductsHandler) {
-        fetcher.getData(at: productsUrlString) { (resul) in
-            // TODO
-            completion(.failure(.emptyData))
+        fetcher.get([Product].self, at: productsUrlString) { (result) in
+            completion(result)
         }
     }
 }

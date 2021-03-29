@@ -11,7 +11,3 @@ struct Category: Decodable {
     let id: Int
     let name: String
 }
-
-struct Categories: Decodable {
-    let categories: [Category]
-}
