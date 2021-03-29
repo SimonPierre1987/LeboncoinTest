@@ -19,6 +19,10 @@ struct Product: Decodable {
     let siret: String?
 }
 
+struct Products: Decodable {
+    let products: [Product]
+}
+
 struct ProductImages: Decodable {
     let small: String
     let thumb: String
