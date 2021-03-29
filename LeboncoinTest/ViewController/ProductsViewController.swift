@@ -8,11 +8,11 @@
 import UIKit
 
 class ProductsViewController: UIViewController {
-    private let productsRepository: ProductsRepositoryProtocol
+    private let interactor: CategoryAndProductInteractor
 
     // MARK: - Init
-    init(productsRepository: ProductsRepositoryProtocol) {
-        self.productsRepository = productsRepository
+    init(interactor: CategoryAndProductInteractor) {
+        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -24,8 +24,7 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        productsRepository.fetchProducts { (productResult) in
-            // TODO
+        interactor.start { (result) in
         }
     }
 }

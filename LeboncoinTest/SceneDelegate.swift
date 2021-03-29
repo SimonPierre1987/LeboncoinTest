@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        let productsRepository = ProductsRepository(fetcher: Fetcher())
-        let productsViewController = ProductsViewController(productsRepository: productsRepository)
+        let interactor = CategoryAndProductInteractor()
+        let productsViewController = ProductsViewController(interactor: interactor)
         window.rootViewController = productsViewController
         window.makeKeyAndVisible()
         self.window = window

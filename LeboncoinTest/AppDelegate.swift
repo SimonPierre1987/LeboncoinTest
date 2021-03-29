@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
 
-        let productsRepository = ProductsRepository(fetcher: Fetcher())
-        let productsViewController = ProductsViewController(productsRepository: productsRepository)
+        let interactor = CategoryAndProductInteractor()
+        let productsViewController = ProductsViewController(interactor: interactor)
         window.rootViewController = productsViewController
         window.makeKeyAndVisible()
 
