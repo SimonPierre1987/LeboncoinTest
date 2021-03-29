@@ -9,7 +9,6 @@ import UIKit
 
 class ProductsViewController: UIViewController {
     private let interactor: CategoryAndProductInteractor
-
     // MARK: - Init
     init(interactor: CategoryAndProductInteractor) {
         self.interactor = interactor
@@ -24,13 +23,57 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        interactor.start { (result) in
+        fetchAndDisplayProducts()
+    }
+}
+
+// MARK: Navigation
+private extension ProductsViewController {
+    func displayDetail(for product: ProductViewModel) {
+        let detailViewController = ProductDetailViewController(product: product)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+// MARK: Data
+private extension ProductsViewController {
+    func fetchAndDisplayProducts() {
+        startLoading()
+        interactor.start { [weak self] (result) in
+            guard let strongSelf = self else { return }
+
+            strongSelf.endLoading()
+            switch result {
+            case let .failure(error):
+                strongSelf.display(error: error)
+            case .success:
+                strongSelf.display(products: strongSelf.interactor.productsViewModels)
+            }
         }
     }
 }
 
+// MARK: UI
 private extension ProductsViewController {
     func setupViews() {
         view.backgroundColor = .white
+        title = "LeBonCoinTest"
+    }
+
+
+    func startLoading() {
+        // TODO
+    }
+
+    func endLoading() {
+        // TODO
+    }
+
+    func display(error: LeboncoinError) {
+        // TODO
+    }
+
+    func display(products: [ProductViewModel]) {
+        // TODO
     }
 }

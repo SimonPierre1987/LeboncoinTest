@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let interactor = CategoryAndProductInteractor()
         let productsViewController = ProductsViewController(interactor: interactor)
-        window.rootViewController = productsViewController
+        let rootNavigationController = UINavigationController(rootViewController: productsViewController)
+        window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         self.window = window
     }

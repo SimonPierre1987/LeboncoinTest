@@ -13,7 +13,7 @@ class CategoryAndProductInteractor {
     // MARK: - Properties
     private let productRepository: ProductsRepositoryProtocol
     private let categoryRepository: CategoriesRepositoryProtocol
-    private var productsViewModels: [ProductViewModel] = []
+    var productsViewModels: [ProductViewModel] = []
 
     // MARK: - Init
     init() {

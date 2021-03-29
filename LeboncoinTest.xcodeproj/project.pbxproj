@@ -22,6 +22,7 @@
 		EBAB7BD42611F72400A2F6AD /* CategoryAndProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BD32611F72400A2F6AD /* CategoryAndProductInteractor.swift */; };
 		EBAB7BDD2611F7FE00A2F6AD /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BDC2611F7FE00A2F6AD /* ProductViewModel.swift */; };
 		EBAB7BE42611F8E700A2F6AD /* ProductMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */; };
+		EBAB7BE926120F0B00A2F6AD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		EBAB7BD32611F72400A2F6AD /* CategoryAndProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAndProductInteractor.swift; sourceTree = "<group>"; };
 		EBAB7BDC2611F7FE00A2F6AD /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapper.swift; sourceTree = "<group>"; };
+		EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAB7BC72611D9A400A2F6AD /* ProductsViewController.swift */,
+				EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				EBAB7BD42611F72400A2F6AD /* CategoryAndProductInteractor.swift in Sources */,
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
+				EBAB7BE926120F0B00A2F6AD /* ProductDetailViewController.swift in Sources */,
 				EBAB7BDD2611F7FE00A2F6AD /* ProductViewModel.swift in Sources */,
 				EBAB7BA72611C6CC00A2F6AD /* ProductsRepository.swift in Sources */,
 				EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */,

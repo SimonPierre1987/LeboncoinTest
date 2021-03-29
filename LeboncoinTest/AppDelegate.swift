@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let interactor = CategoryAndProductInteractor()
         let productsViewController = ProductsViewController(interactor: interactor)
-        window.rootViewController = productsViewController
+        let rootNavigationController = UINavigationController(rootViewController: productsViewController)
+        window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
 
         return true
