@@ -17,6 +17,10 @@ struct ProductViewModel {
     let creationDate: Date
     let isUrgent: Bool
     let siret: String?
+
+    var convenientPrice: String {
+        return "\(price) €"
+    }
 }
 
 struct ProductImagesViewModel {

@@ -114,7 +114,7 @@ private extension ProductsViewController {
 private extension ProductsViewController {
     func createCollectionView() {
         let collectionViewContainer = UIView()
-        collectionViewContainer.backgroundColor = .yellow
+        collectionViewContainer.backgroundColor = .white
         view.addSubview(collectionViewContainer)
         collectionViewContainer.pintTo(view)
 
@@ -122,6 +122,7 @@ private extension ProductsViewController {
 
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else { return }
+        collectionView.backgroundColor = .white
         collectionViewContainer.addSubview(collectionView)
         collectionView.pintTo(collectionViewContainer)
     }
@@ -130,7 +131,6 @@ private extension ProductsViewController {
         guard let collectionView = collectionView else { return }
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCollectionViewCell")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
-        collectionView.backgroundColor = UIColor.red
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -144,7 +144,7 @@ extension ProductsViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize.zero
             }
             let width = (containerFrame.width - sectionInsets.left - 2*sectionInsets.right) / 2
-            let height = width * 1.5
+            let height = width * 2
             return CGSize(width: width,
                           height: height)
         }

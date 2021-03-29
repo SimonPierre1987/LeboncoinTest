@@ -15,4 +15,15 @@ extension UIView {
         bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
+
+    func set(aspectRatio: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        addConstraint(NSLayoutConstraint(item: self,
+                                         attribute: NSLayoutConstraint.Attribute.height,
+                                         relatedBy: NSLayoutConstraint.Relation.equal,
+                                         toItem: self,
+                                         attribute: NSLayoutConstraint.Attribute.width,
+                                         multiplier: aspectRatio,
+                                         constant: 0))
+    }
 }
