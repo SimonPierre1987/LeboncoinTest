@@ -10,16 +10,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
-
         let interactor = CategoryAndProductInteractor()
         let productsViewController = ProductsViewController(interactor: interactor)
         let rootNavigationController = UINavigationController(rootViewController: productsViewController)
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
-
+        self.window = window
         return true
     }
 
