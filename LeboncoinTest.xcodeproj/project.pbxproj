@@ -15,6 +15,7 @@
 		EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B932611C0D400A2F6AD /* Category.swift */; };
 		EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B9B2611C2BB00A2F6AD /* Product.swift */; };
 		EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */; };
+		EBAB7BA72611C6CC00A2F6AD /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EBAB7B932611C0D400A2F6AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EBAB7B9B2611C2BB00A2F6AD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
+		EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */,
+				EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */,
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
+				EBAB7BA72611C6CC00A2F6AD /* ProductsRepository.swift in Sources */,
 				EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */,
 				EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */,
 			);
