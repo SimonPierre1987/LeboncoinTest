@@ -117,14 +117,14 @@
 		EBAB7B4B2611B91E00A2F6AD /* LeboncoinTest */ = {
 			isa = PBXGroup;
 			children = (
-				EBAB7BED2612132900A2F6AD /* Helper */,
-				EBAB7BDB2611F7E600A2F6AD /* ViewModel */,
-				EBAB7BD22611F70A00A2F6AD /* Interactor */,
 				EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */,
-				EBAB7BA02611C48400A2F6AD /* Repository */,
-				EBAB7B912611C08E00A2F6AD /* Model */,
-				EBAB7BC62611D96C00A2F6AD /* ViewController */,
 				EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */,
+				EBAB7BC62611D96C00A2F6AD /* ViewController */,
+				EBAB7BDB2611F7E600A2F6AD /* ViewModel */,
+				EBAB7B912611C08E00A2F6AD /* Model */,
+				EBAB7BA02611C48400A2F6AD /* Repository */,
+				EBAB7BD22611F70A00A2F6AD /* Interactor */,
+				EBAB7BED2612132900A2F6AD /* Helper */,
 				EBAB7B552611B91F00A2F6AD /* Assets.xcassets */,
 				EBAB7B572611B91F00A2F6AD /* LaunchScreen.storyboard */,
 				EBAB7B5A2611B91F00A2F6AD /* Info.plist */,
