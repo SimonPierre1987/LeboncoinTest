@@ -9,13 +9,10 @@ import UIKit
 
 extension UIView {
     func pintTo(_ view: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        let constraints = [
-            topAnchor.constraint(equalTo: view.topAnchor),
-            leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            view.bottomAnchor.constraint(equalTo: bottomAnchor),
-            view.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 }
