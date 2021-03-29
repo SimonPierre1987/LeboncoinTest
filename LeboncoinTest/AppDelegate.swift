@@ -13,8 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = ViewController()
-        window.rootViewController = viewController
+
+        let productsRepository = ProductsRepository(fetcher: Fetcher())
+        let productsViewController = ProductsViewController(productsRepository: productsRepository)
+        window.rootViewController = productsViewController
         window.makeKeyAndVisible()
 
         return true

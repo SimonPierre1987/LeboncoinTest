@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */; };
 		EBAB7B4F2611B91E00A2F6AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */; };
-		EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B502611B91E00A2F6AD /* ViewController.swift */; };
 		EBAB7B562611B91F00A2F6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAB7B552611B91F00A2F6AD /* Assets.xcassets */; };
 		EBAB7B592611B91F00A2F6AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAB7B572611B91F00A2F6AD /* LaunchScreen.storyboard */; };
 		EBAB7B642611B91F00A2F6AD /* LeboncoinTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B632611B91F00A2F6AD /* LeboncoinTestTests.swift */; };
@@ -19,6 +18,7 @@
 		EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */; };
 		EBAB7BA72611C6CC00A2F6AD /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */; };
 		EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BAF2611CA6300A2F6AD /* Fetcher.swift */; };
+		EBAB7BC82611D9A400A2F6AD /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BC72611D9A400A2F6AD /* ProductsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,6 @@
 		EBAB7B492611B91E00A2F6AD /* LeboncoinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboncoinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EBAB7B502611B91E00A2F6AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBAB7B552611B91F00A2F6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBAB7B582611B91F00A2F6AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAB7B5A2611B91F00A2F6AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		EBAB7BA12611C4A000A2F6AD /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
 		EBAB7BA62611C6CC00A2F6AD /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
 		EBAB7BAF2611CA6300A2F6AD /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		EBAB7BC72611D9A400A2F6AD /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +110,8 @@
 				EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */,
 				EBAB7BA02611C48400A2F6AD /* Repository */,
 				EBAB7B912611C08E00A2F6AD /* Model */,
+				EBAB7BC62611D96C00A2F6AD /* ViewController */,
 				EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */,
-				EBAB7B502611B91E00A2F6AD /* ViewController.swift */,
 				EBAB7B552611B91F00A2F6AD /* Assets.xcassets */,
 				EBAB7B572611B91F00A2F6AD /* LaunchScreen.storyboard */,
 				EBAB7B5A2611B91F00A2F6AD /* Info.plist */,
@@ -154,6 +154,14 @@
 				EBAB7BAF2611CA6300A2F6AD /* Fetcher.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		EBAB7BC62611D96C00A2F6AD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EBAB7BC72611D9A400A2F6AD /* ProductsViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,11 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */,
-				EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */,
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
 				EBAB7BA72611C6CC00A2F6AD /* ProductsRepository.swift in Sources */,
 				EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */,
+				EBAB7BC82611D9A400A2F6AD /* ProductsViewController.swift in Sources */,
 				EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */,
 				EBAB7B4F2611B91E00A2F6AD /* SceneDelegate.swift in Sources */,
 			);
