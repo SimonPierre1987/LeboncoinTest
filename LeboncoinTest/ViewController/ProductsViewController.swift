@@ -43,8 +43,13 @@ extension ProductsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let productCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
-        productCell.backgroundColor = UIColor.blue
+        guard let productCell: ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else {
+            let defaultCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell",
+                                                                 for: indexPath)
+            return defaultCell
+        }
+
+        productCell.configure(with: interactor.productsViewModels[indexPath.row])
         return productCell
     }
 }
@@ -123,7 +128,8 @@ private extension ProductsViewController {
 
     func configureCollectionView() {
         guard let collectionView = collectionView else { return }
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCollectionViewCell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         collectionView.backgroundColor = UIColor.red
         collectionView.delegate = self
         collectionView.dataSource = self

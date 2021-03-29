@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB438D112612212C00481B85 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB438D102612212C00481B85 /* ProductCollectionViewCell.swift */; };
 		EB438D1B261227D300481B85 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB438D1A261227D300481B85 /* ImageFetcher.swift */; };
 		EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */; };
 		EBAB7B4F2611B91E00A2F6AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB438D102612212C00481B85 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		EB438D1A261227D300481B85 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		EBAB7B492611B91E00A2F6AD /* LeboncoinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboncoinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB438D0F2612211500481B85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB438D102612212C00481B85 /* ProductCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EBAB7B402611B91E00A2F6AD = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 				EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */,
 				EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */,
 				EBAB7BC62611D96C00A2F6AD /* ViewController */,
+				EB438D0F2612211500481B85 /* View */,
 				EBAB7BDB2611F7E600A2F6AD /* ViewModel */,
 				EBAB7B912611C08E00A2F6AD /* Model */,
 				EBAB7BA02611C48400A2F6AD /* Repository */,
@@ -346,6 +357,7 @@
 				EBAB7BE42611F8E700A2F6AD /* ProductMapper.swift in Sources */,
 				EB438D1B261227D300481B85 /* ImageFetcher.swift in Sources */,
 				EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */,
+				EB438D112612212C00481B85 /* ProductCollectionViewCell.swift in Sources */,
 				EBAB7BD42611F72400A2F6AD /* CategoryAndProductInteractor.swift in Sources */,
 				EBAB7BEF2612133C00A2F6AD /* UIView+Constraints.swift in Sources */,
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,

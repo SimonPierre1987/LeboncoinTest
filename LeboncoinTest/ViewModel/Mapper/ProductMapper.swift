@@ -67,11 +67,12 @@ class ProductImagesMapper {
         }
 
         // The business logic requires a product to have an image
-        guard thumbnailURL != nil || smallImageURL != nil else {
+        guard let compulsoryImageURL = thumbnailURL ?? smallImageURL else {
             return nil
         }
 
         return ProductImagesViewModel(smallImageURL: smallImageURL,
-                                      thumbnailURL: thumbnailURL)
+                                      thumbnailURL: thumbnailURL,
+                                      compulsoryImageURL: compulsoryImageURL)
     }
 }

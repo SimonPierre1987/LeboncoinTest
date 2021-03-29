@@ -22,4 +22,5 @@ struct ProductViewModel {
 struct ProductImagesViewModel {
     let smallImageURL: URL?
     let thumbnailURL: URL?
+    let compulsoryImageURL: URL // thumbnailURL if it exists or smallImageURL
 }
