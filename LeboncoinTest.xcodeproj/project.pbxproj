@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */; };
-		EBAB7B4F2611B91E00A2F6AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */; };
 		EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B502611B91E00A2F6AD /* ViewController.swift */; };
-		EBAB7B542611B91E00A2F6AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAB7B522611B91E00A2F6AD /* Main.storyboard */; };
 		EBAB7B562611B91F00A2F6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAB7B552611B91F00A2F6AD /* Assets.xcassets */; };
-		EBAB7B592611B91F00A2F6AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAB7B572611B91F00A2F6AD /* LaunchScreen.storyboard */; };
 		EBAB7B642611B91F00A2F6AD /* LeboncoinTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B632611B91F00A2F6AD /* LeboncoinTestTests.swift */; };
 		EBAB7B6F2611B91F00A2F6AD /* LeboncoinTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B6E2611B91F00A2F6AD /* LeboncoinTestUITests.swift */; };
 /* End PBXBuildFile section */
@@ -37,11 +34,8 @@
 /* Begin PBXFileReference section */
 		EBAB7B492611B91E00A2F6AD /* LeboncoinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboncoinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EBAB7B502611B91E00A2F6AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EBAB7B532611B91E00A2F6AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBAB7B552611B91F00A2F6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EBAB7B582611B91F00A2F6AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAB7B5A2611B91F00A2F6AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBAB7B5F2611B91F00A2F6AD /* LeboncoinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeboncoinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAB7B632611B91F00A2F6AD /* LeboncoinTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinTestTests.swift; sourceTree = "<group>"; };
@@ -100,11 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */,
-				EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */,
 				EBAB7B502611B91E00A2F6AD /* ViewController.swift */,
-				EBAB7B522611B91E00A2F6AD /* Main.storyboard */,
 				EBAB7B552611B91F00A2F6AD /* Assets.xcassets */,
-				EBAB7B572611B91F00A2F6AD /* LaunchScreen.storyboard */,
 				EBAB7B5A2611B91F00A2F6AD /* Info.plist */,
 			);
 			path = LeboncoinTest;
@@ -231,9 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBAB7B592611B91F00A2F6AD /* LaunchScreen.storyboard in Resources */,
 				EBAB7B562611B91F00A2F6AD /* Assets.xcassets in Resources */,
-				EBAB7B542611B91E00A2F6AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +249,6 @@
 			files = (
 				EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */,
 				EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */,
-				EBAB7B4F2611B91E00A2F6AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +282,6 @@
 			targetProxy = EBAB7B6B2611B91F00A2F6AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EBAB7B522611B91E00A2F6AD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EBAB7B532611B91E00A2F6AD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EBAB7B572611B91F00A2F6AD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EBAB7B582611B91F00A2F6AD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EBAB7B712611B91F00A2F6AD /* Debug */ = {
@@ -366,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -439,6 +408,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZK97SYNVXK;
 				INFOPLIST_FILE = LeboncoinTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZK97SYNVXK;
 				INFOPLIST_FILE = LeboncoinTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
