@@ -15,7 +15,6 @@ enum LeboncoinError: Error {
 }
 
 class Fetcher {
-
     func getData(at urlString: String,
                  _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
         privateGetData(at: urlString) { (result) in
@@ -24,10 +23,11 @@ class Fetcher {
             }
         }
     }
+}
 
-    // MARK: Private
-    private func privateGetData(at urlString: String,
-                                _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
+private extension Fetcher {
+    func privateGetData(at urlString: String,
+                        _ completion: @escaping (Result<(Data, HTTPURLResponse), LeboncoinError>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(.badURLFormat))
             return
