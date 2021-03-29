@@ -13,6 +13,7 @@
 		EBAB7B642611B91F00A2F6AD /* LeboncoinTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B632611B91F00A2F6AD /* LeboncoinTestTests.swift */; };
 		EBAB7B6F2611B91F00A2F6AD /* LeboncoinTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B6E2611B91F00A2F6AD /* LeboncoinTestUITests.swift */; };
 		EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B932611C0D400A2F6AD /* Category.swift */; };
+		EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B9B2611C2BB00A2F6AD /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		EBAB7B6E2611B91F00A2F6AD /* LeboncoinTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinTestUITests.swift; sourceTree = "<group>"; };
 		EBAB7B702611B91F00A2F6AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBAB7B932611C0D400A2F6AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		EBAB7B9B2611C2BB00A2F6AD /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAB7B932611C0D400A2F6AD /* Category.swift */,
+				EBAB7B9B2611C2BB00A2F6AD /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBAB7B512611B91E00A2F6AD /* ViewController.swift in Sources */,
+				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
 				EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */,
 				EBAB7B942611C0D400A2F6AD /* Category.swift in Sources */,
 			);
