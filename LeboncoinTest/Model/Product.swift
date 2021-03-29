@@ -8,23 +8,23 @@
 import Foundation
 
 struct Product: Decodable {
-    let productID: Int
+    let productId: Int
     let categoryId: Int
     let title: String
     let description: String
     let price: Int
-    let imagesURL: ProductImages
+    let images: ProductImages
     let creationDate: String
     let isUrgent: Bool
     let siret: String?
 
     enum CodingKeys: String, CodingKey {
-        case productID = "id"
+        case productId = "id"
         case categoryId = "category_id"
         case title
         case description
         case price
-        case imagesURL = "images_url"
+        case images = "images_url"
         case creationDate = "creation_date"
         case isUrgent = "is_urgent"
         case siret
@@ -32,6 +32,11 @@ struct Product: Decodable {
 }
 
 struct ProductImages: Decodable {
-    let small: String?
-    let thumb: String?
+    let smallImageURLString: String?
+    let thumbnailURLString: String?
+
+    enum CodingKeys: String, CodingKey {
+        case smallImageURLString = "small"
+        case thumbnailURLString = "thumb"
+    }
 }

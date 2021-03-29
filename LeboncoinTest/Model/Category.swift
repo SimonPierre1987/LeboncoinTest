@@ -8,6 +8,11 @@
 import Foundation
 
 struct Category: Decodable {
-    let id: Int
+    let categoryId: Int
     let name: String
+
+    enum CodingKeys: String, CodingKey {
+        case categoryId = "id"
+        case name
+    }
 }
