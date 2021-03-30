@@ -8,12 +8,17 @@
 import UIKit
 
 extension UIView {
-    func pintTo(_ view: UIView) {
+
+    func pinTo(_ view: UIView, marging: UIEdgeInsets) {
         translatesAutoresizingMaskIntoConstraints = false
-        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topAnchor.constraint(equalTo: view.topAnchor, constant: marging.top).isActive = true
+        leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: marging.left).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -marging.right).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -marging.bottom).isActive = true
+    }
+
+    func pintTo(_ view: UIView) {
+        pinTo(view, marging: .zero)
     }
 
     func set(aspectRatio: CGFloat) {
