@@ -17,6 +17,14 @@ extension UIView {
         bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -marging.bottom).isActive = true
     }
 
+    func pinToSafeArea(_ view: UIView, marging: UIEdgeInsets) {
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: marging.top).isActive = true
+        leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: marging.left).isActive = true
+        trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -marging.right).isActive = true
+        bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -marging.bottom).isActive = true
+    }
+
     func pintTo(_ view: UIView) {
         pinTo(view, marging: .zero)
     }

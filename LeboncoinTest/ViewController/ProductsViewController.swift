@@ -131,7 +131,7 @@ private extension ProductsViewController {
         let collectionViewContainer = UIView()
         collectionViewContainer.backgroundColor = .white
         view.addSubview(collectionViewContainer)
-        collectionViewContainer.pintTo(view)
+        collectionViewContainer.pinToSafeArea(view, marging: geometry.collectionViewContainerInsets)
 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 
