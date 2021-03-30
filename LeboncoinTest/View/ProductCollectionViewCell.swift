@@ -33,6 +33,15 @@ class ProductCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Life Cycle
+    override func prepareForReuse() {
+        productImageView?.cancelImageFetch()
+        productImageView?.image = UIImage(named: Constant.productImagePlaceholder)
+        productPriceLabel?.text = nil
+        productTitleLabel?.text = nil
+        isUrgentView?.setup(isUrgent: false)
+    }
+
     // MARK: - Public Functions
     func configure(with product: ProductViewModel) {
         productTitleLabel?.text = product.title.uppercased()
@@ -40,14 +49,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView?.fetchImage(at: product.imagesURL.compulsoryImageURL)
         isUrgentView?.setup(isUrgent: product.isUrgent)
         stackView?.setNeedsLayout()
-    }
-
-    override func prepareForReuse() {
-        productImageView?.cancelImageFetch()
-        productImageView?.image = UIImage(named: Constant.productImagePlaceholder)
-        productPriceLabel?.text = nil
-        productTitleLabel?.text = nil
-        isUrgentView?.setup(isUrgent: false)
     }
 }
 
