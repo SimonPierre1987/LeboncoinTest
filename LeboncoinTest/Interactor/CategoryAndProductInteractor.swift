@@ -22,7 +22,7 @@ class CategoryAndProductInteractor {
         categoryRepository = CategoriesRepository(fetcher: fetcher)
     }
 
-    // MARK: - Function
+    // MARK: - Public Functions
     func start(_ completion: @escaping categoryAndProductCompletion) {
         self.fetchCategoriesAndProducts { [weak self] (result) in
             self?.buildProductsViewModels()

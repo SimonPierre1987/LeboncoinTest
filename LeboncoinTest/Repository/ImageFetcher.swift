@@ -14,7 +14,7 @@ class UIImageFetcher {
     private let imageFetcher = ImageFetcher()
     private var uuidMap: [UIImageView: UUID] = [:]
 
-    // MARK: - Functions
+    // MARK: - Public Functions
     func fetchImage(at url: URL, for imageView: UIImageView) {
         let token = imageFetcher.fetchImage(at: url) { result in
 

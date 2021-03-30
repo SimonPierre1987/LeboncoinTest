@@ -16,7 +16,7 @@ enum LeboncoinError: Error {
 }
 
 class Fetcher {
-    // MARK: - Functions
+    // MARK: - Public Functions
     func get<T: Decodable>(_ type: T.Type, at urlString: String,
                          _ completion: @escaping (Result<T, LeboncoinError>) -> Void) {
         getDataOnMainThread(at: urlString) { (result) in
