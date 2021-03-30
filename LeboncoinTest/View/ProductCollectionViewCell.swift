@@ -16,13 +16,14 @@ private enum Constant {
 }
 
 class ProductCollectionViewCell: UICollectionViewCell {
-    // MARK: Properties
+    // MARK: - Properties
     private var productImageView: UIImageView?
     private var productTitleLabel: UILabel?
     private var productPriceLabel: UILabel?
+    private var isUrgentView: IsUrgentView?
     private var stackView: UIStackView?
 
-    // MARK: Life Cycle
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -37,6 +38,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productTitleLabel?.text = product.title.uppercased()
         productPriceLabel?.text = product.convenientPrice.uppercased()
         productImageView?.fetchImage(at: product.imagesURL.compulsoryImageURL)
+        isUrgentView?.setup(isUrgent: product.isUrgent)
         stackView?.setNeedsLayout()
     }
 
@@ -45,6 +47,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView?.image = UIImage(named: Constant.productImagePlaceholder)
         productPriceLabel?.text = nil
         productTitleLabel?.text = nil
+        isUrgentView?.setup(isUrgent: false)
     }
 }
 
@@ -54,6 +57,7 @@ private extension ProductCollectionViewCell {
         setupImageView()
         setupTitle()
         setupPriceLabel()
+        setupIsUrgentView()
         setupStackView()
     }
 
@@ -78,12 +82,16 @@ private extension ProductCollectionViewCell {
         productTitleLabel.allowsDefaultTighteningForTruncation = true
     }
 
+    func setupIsUrgentView() {
+        isUrgentView = IsUrgentView(frame: CGRect.zero)
+    }
+
     func setupPriceLabel() {
         productPriceLabel = UILabel(frame: CGRect.zero)
         guard let productPriceLabel = productPriceLabel else { return }
 
         productPriceLabel.numberOfLines = 1
-        productPriceLabel.font = UIFont.boldSystemFont(ofSize: Constant.fontSize)
+        productPriceLabel.font = UIFont.systemFont(ofSize: Constant.fontSize)
         productPriceLabel.textColor = .orange
         productPriceLabel.lineBreakMode = .byWordWrapping
         productPriceLabel.allowsDefaultTighteningForTruncation = true
@@ -92,11 +100,16 @@ private extension ProductCollectionViewCell {
     func setupStackView() {
         guard let productImageView = productImageView,
               let productTitleLabel = productTitleLabel,
-              let productPriceLabel = productPriceLabel else {
+              let productPriceLabel = productPriceLabel,
+              let isUrgentView = isUrgentView else {
             return
         }
 
-        stackView = UIStackView(arrangedSubviews: [productImageView, productTitleLabel, productPriceLabel, UIView()])
+        stackView = UIStackView(arrangedSubviews: [productImageView,
+                                                   productTitleLabel,
+                                                   productPriceLabel,
+                                                   isUrgentView,
+                                                   UIView()])
         guard let stackView = stackView else { return }
 
         stackView.alignment = .fill
