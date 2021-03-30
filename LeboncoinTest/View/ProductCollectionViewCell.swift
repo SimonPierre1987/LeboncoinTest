@@ -36,16 +36,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
     func configure(with product: ProductViewModel) {
         productTitleLabel?.text = product.title.uppercased()
         productPriceLabel?.text = product.convenientPrice.uppercased()
-
-        ImageFetcher.sharedInstance.loadFrom(url: product.imagesURL.compulsoryImageURL) { [weak self] (image) in
-            guard let image = image else { return }
-            self?.productImageView?.image = image
-        }
-
+        productImageView?.fetchImage(at: product.imagesURL.compulsoryImageURL)
         stackView?.setNeedsLayout()
     }
 
     override func prepareForReuse() {
+        productImageView?.cancelImageFetch()
         productImageView?.image = UIImage(named: Constant.productImagePlaceholder)
         productPriceLabel?.text = nil
         productTitleLabel?.text = nil
