@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProductViewModel {
-    let productID: Int
+    let productId: Int
     let category: Category
     let title: String
     let description: String
@@ -23,8 +23,28 @@ struct ProductViewModel {
     }
 }
 
+extension ProductViewModel: Comparable {
+    static func == (lhs: ProductViewModel, rhs: ProductViewModel) -> Bool {
+           return lhs.productId == rhs.productId
+    }
+
+    static func < (lhs: ProductViewModel, rhs: ProductViewModel) -> Bool {
+        switch (lhs.isUrgent, rhs.isUrgent) {
+        case (true, true):
+            return lhs.creationDate < rhs.creationDate
+        case (true, false):
+            return true
+        case (false, true):
+            return false
+        case (false, false):
+            return lhs.creationDate < rhs.creationDate
+        }
+    }
+}
+
 struct ProductImagesViewModel {
     let smallImageURL: URL?
     let thumbnailURL: URL?
     let compulsoryImageURL: URL // thumbnailURL if it exists or smallImageURL
 }
+

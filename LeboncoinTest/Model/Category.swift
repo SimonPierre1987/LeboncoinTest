@@ -5,7 +5,7 @@
 //  Created by Simon Pierre on 29/03/2021.
 //
 
-import Foundation
+import UIKit
 
 struct Category: Decodable {
     let categoryId: Int
@@ -14,5 +14,42 @@ struct Category: Decodable {
     enum CodingKeys: String, CodingKey {
         case categoryId = "id"
         case name
+    }
+}
+
+extension Category: Equatable {
+    static func == (lhs: Category, rhs: Category) -> Bool {
+           return lhs.categoryId == rhs.categoryId
+    }
+}
+
+extension Category {
+    var categoryColor: UIColor {
+        switch categoryId {
+        case 1:
+            return .blue
+        case 2:
+            return .brown
+        case 3:
+            return .cyan
+        case 4:
+            return .darkGray
+        case 5:
+            return .magenta
+        case 6:
+            return .purple
+        case 7:
+            return .red
+        case 8:
+            return .yellow
+        case 9:
+            return .black
+        case 10:
+            return .green
+        case 11:
+            return .lightGray
+        default:
+            return .gray
+        }
     }
 }

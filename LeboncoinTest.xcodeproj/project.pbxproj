@@ -12,6 +12,7 @@
 		EB73E4B62613219F003E207C /* UIImageView+ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73E4B52613219F003E207C /* UIImageView+ImageFetcher.swift */; };
 		EB73E4BB261328FD003E207C /* IsUrgentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73E4BA261328FD003E207C /* IsUrgentView.swift */; };
 		EB73E4C026134DBC003E207C /* ProductsCollectionViewGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73E4BF26134DBC003E207C /* ProductsCollectionViewGeometry.swift */; };
+		EB73E4C526135A7B003E207C /* ProductFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73E4C426135A7B003E207C /* ProductFilter.swift */; };
 		EBAB7B4D2611B91E00A2F6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */; };
 		EBAB7B4F2611B91E00A2F6AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */; };
 		EBAB7B562611B91F00A2F6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAB7B552611B91F00A2F6AD /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		EB73E4B52613219F003E207C /* UIImageView+ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageFetcher.swift"; sourceTree = "<group>"; };
 		EB73E4BA261328FD003E207C /* IsUrgentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsUrgentView.swift; sourceTree = "<group>"; };
 		EB73E4BF26134DBC003E207C /* ProductsCollectionViewGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewGeometry.swift; sourceTree = "<group>"; };
+		EB73E4C426135A7B003E207C /* ProductFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFilter.swift; sourceTree = "<group>"; };
 		EBAB7B492611B91E00A2F6AD /* LeboncoinTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeboncoinTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAB7B4C2611B91E00A2F6AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBAB7B4E2611B91E00A2F6AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				EBAB7B932611C0D400A2F6AD /* Category.swift */,
 				EBAB7B9B2611C2BB00A2F6AD /* Product.swift */,
+				EB73E4C426135A7B003E207C /* ProductFilter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				EBAB7BB02611CA6300A2F6AD /* Fetcher.swift in Sources */,
 				EB438D112612212C00481B85 /* ProductCollectionViewCell.swift in Sources */,
 				EB73E4B62613219F003E207C /* UIImageView+ImageFetcher.swift in Sources */,
+				EB73E4C526135A7B003E207C /* ProductFilter.swift in Sources */,
 				EB73E4BB261328FD003E207C /* IsUrgentView.swift in Sources */,
 				EBAB7BD42611F72400A2F6AD /* CategoryAndProductInteractor.swift in Sources */,
 				EBAB7BEF2612133C00A2F6AD /* UIView+Constraints.swift in Sources */,

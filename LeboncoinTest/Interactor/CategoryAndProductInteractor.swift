@@ -13,7 +13,17 @@ class CategoryAndProductInteractor {
     // MARK: - Properties
     private let productRepository: ProductsRepositoryProtocol
     private let categoryRepository: CategoriesRepositoryProtocol
-    var productsViewModels: [ProductViewModel] = []
+    private var currentFilter: ProductFilter = .none
+    private var productsViewModels: [ProductViewModel] = []
+
+    var currentProducts: [ProductViewModel] {
+        switch currentFilter {
+        case .none:
+            return productsViewModels
+        case let .filter(category: category):
+            return productsViewModels.filter { $0.category == category}
+        }
+    }
 
     // MARK: - Init
     init() {
@@ -28,6 +38,10 @@ class CategoryAndProductInteractor {
             self?.buildProductsViewModels()
             completion(result)
         }
+    }
+
+    func userDidSelectFilter(filter: ProductFilter) {
+        self.currentFilter = filter
     }
 }
 
@@ -58,6 +72,8 @@ private extension CategoryAndProductInteractor {
     func buildProductsViewModels() {
         let categories = categoryRepository.categories
         let products = productRepository.products
-        productsViewModels =  products.compactMap( { ProductMapper.productViewModel(from: $0, with: categories) })
+        productsViewModels =  products
+            .compactMap( { ProductMapper.productViewModel(from: $0, with: categories) })
+            .sorted()
     }
 }

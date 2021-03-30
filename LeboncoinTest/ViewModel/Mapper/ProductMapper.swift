@@ -22,8 +22,6 @@ class ProductMapper {
                                  with categories: [Category]) -> ProductViewModel? {
         // The business logic requires a product to have a creation date
         guard let creationDate = dateFormatter.date(from:product.creationDate) else {
-            // TODO: if isUrgent is true and date does not exist can the product can exist ?
-            // if so the business logic
             return nil
         }
 
@@ -37,7 +35,7 @@ class ProductMapper {
             return nil
         }
 
-        return ProductViewModel(productID: product.productId,
+        return ProductViewModel(productId: product.productId,
                                 category: productCategory,
                                 title: product.title,
                                 description: product.description,
@@ -67,6 +65,7 @@ class ProductImagesMapper {
         }
 
         // The business logic requires a product to have an image
+        // A valid image URL is the minimum requirement
         guard let compulsoryImageURL = thumbnailURL ?? smallImageURL else {
             return nil
         }
