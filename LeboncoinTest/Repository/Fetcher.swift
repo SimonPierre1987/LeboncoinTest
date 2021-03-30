@@ -11,7 +11,7 @@ enum LeboncoinError: Error {
     case badURLFormat
     case badHTTPResponse
     case missingData
-    case parsingError(error: Error)
+    case parsingError(localizedDescription: String)
     case other(localizedDescription: String)
 }
 
@@ -28,7 +28,7 @@ class Fetcher {
                     let parsedData = try JSONDecoder().decode(type, from: jsonData)
                     completion(.success(parsedData))
                 } catch {
-                    completion(.failure(.parsingError(error: error)))
+                    completion(.failure(.parsingError(localizedDescription: error.localizedDescription)))
                 }
             }
         }
