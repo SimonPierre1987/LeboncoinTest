@@ -21,7 +21,7 @@ struct ProductsCollectionViewGeometry {
     let itemSpacing: CGFloat = 20
     let lineSpacing: CGFloat = 25
 
-    let itemAspectRatio: CGFloat = 2
+    let itemAspectRatio: CGFloat = 2/1
 
     func numberOfItemPerRow(for width: CGFloat) -> Int {
         if width < 500 {

@@ -41,7 +41,7 @@ class ProductsViewController: UIViewController {
                                      with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
-        guard let collectionView = collectionView else { return }
+        guard let collectionView = collectionView else { return }
 
         coordinator.animate(
             alongsideTransition: { _ in collectionView.collectionViewLayout.invalidateLayout() },
