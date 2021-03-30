@@ -108,12 +108,12 @@ private extension ProductCollectionViewCell {
         stackView = UIStackView(arrangedSubviews: [productImageView,
                                                    productTitleLabel,
                                                    productPriceLabel,
-                                                   isUrgentView,
-                                                   UIView()])
+                                                   UIView(),
+                                                   isUrgentView])
         guard let stackView = stackView else { return }
 
-        stackView.alignment = .fill
         stackView.axis = .vertical
+        stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = Constant.stackviewSpacing
         self.addSubview(stackView)

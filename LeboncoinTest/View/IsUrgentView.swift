@@ -12,9 +12,9 @@ private enum Constant {
 }
 
 class IsUrgentView: UIView {
+    // MARK: - Properties
     private var isUrgentLabel: UILabel?
     private var isUrgentLabelContainer: UIView?
-
     private var stackView: UIStackView?
 
     // MARK: Init
@@ -30,6 +30,7 @@ class IsUrgentView: UIView {
     // MARK: Life Cycle
     override func layoutSubviews() {
         guard let isUrgentLabelContainer = isUrgentLabelContainer else { return }
+
         isUrgentLabelContainer.layer.cornerRadius = frame.size.height / 2
     }
 
@@ -50,7 +51,6 @@ private extension IsUrgentView {
     
     func setupIsUrgentLabel() {
         isUrgentLabelContainer = UIView(frame: CGRect.zero)
-        isUrgentLabelContainer?.backgroundColor = .orange
         isUrgentLabel = UILabel(frame: CGRect.zero)
         guard let isUrgentLabel = isUrgentLabel,
               let isUrgentLabelContainer = isUrgentLabelContainer else { return }
@@ -65,6 +65,7 @@ private extension IsUrgentView {
         isUrgentLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         isUrgentLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
 
+        isUrgentLabelContainer.backgroundColor = .orange
         isUrgentLabelContainer.addSubview(isUrgentLabel)
         isUrgentLabel.pinTo(isUrgentLabelContainer,
                             marging: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))

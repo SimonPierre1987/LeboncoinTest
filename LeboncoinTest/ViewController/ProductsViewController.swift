@@ -7,16 +7,17 @@
 
 import UIKit
 
+private enum Constant {
+   static let productCellIdentifer = "ProductCollectionViewCell"
+    static let defaultCellIdentifier = "UICollectionViewCell"
+}
+
 class ProductsViewController: UIViewController {
-    // MARK: Properties
+    // MARK: - Properties
     private let interactor: CategoryAndProductInteractor
     private var collectionView: UICollectionView?
-    private let sectionInsets = UIEdgeInsets(
-      top: 50.0,
-      left: 20.0,
-      bottom: 50.0,
-      right: 20.0)
-
+    private let geometry = ProductsCollectionViewGeometry()
+    
     // MARK: - Init
     init(interactor: CategoryAndProductInteractor) {
         self.interactor = interactor
@@ -35,6 +36,18 @@ class ProductsViewController: UIViewController {
         configureCollectionView()
         fetchAndDisplayProducts()
     }
+
+    override func viewWillTransition(to size: CGSize,
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        guard let collectionView = collectionView else { return }
+
+        coordinator.animate(
+            alongsideTransition: { _ in collectionView.collectionViewLayout.invalidateLayout() },
+            completion: { _ in }
+        )
+    }
 }
 
 extension ProductsViewController: UICollectionViewDataSource {
@@ -43,8 +56,10 @@ extension ProductsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let productCell: ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else {
-            let defaultCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell",
+        guard let productCell: ProductCollectionViewCell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: Constant.productCellIdentifer,
+                for: indexPath) as? ProductCollectionViewCell else {
+            let defaultCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.defaultCellIdentifier,
                                                                  for: indexPath)
             return defaultCell
         }
@@ -129,8 +144,8 @@ private extension ProductsViewController {
 
     func configureCollectionView() {
         guard let collectionView = collectionView else { return }
-        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCollectionViewCell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constant.productCellIdentifer)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constant.defaultCellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -143,27 +158,28 @@ extension ProductsViewController: UICollectionViewDelegateFlowLayout {
             guard let containerFrame = collectionView.superview?.frame else {
                 return CGSize.zero
             }
-            let width = (containerFrame.width - sectionInsets.left - 2*sectionInsets.right) / 2
-            let height = width * 2
-            return CGSize(width: width,
-                          height: height)
+
+
+            let width = geometry.itemWidth(for: containerFrame.width)
+            let height = width * geometry.itemAspectRatio
+            return CGSize(width: width, height: height)
         }
 
         func collectionView(_ collectionView: UICollectionView,
                             layout collectionViewLayout: UICollectionViewLayout,
                             minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 1.0
+            return geometry.itemSpacing
         }
 
         func collectionView(_ collectionView: UICollectionView, layout
             collectionViewLayout: UICollectionViewLayout,
                             minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return sectionInsets.left
+            return geometry.lineSpacing
         }
 
     func collectionView(_ collectionView: UICollectionView,
                           layout collectionViewLayout: UICollectionViewLayout,
                           insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
+        return geometry.sectionInsets
     }
 }
