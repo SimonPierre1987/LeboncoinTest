@@ -8,18 +8,21 @@
 import UIKit
 
 struct ProductsCollectionViewGeometry {
-    let collectionViewContainerInsets =  UIEdgeInsets(top: 10,
-                                                      left: 0,
-                                                      bottom: 10,
-                                                      right: 0)
+    var collectionViewContainerInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: categoryFiltersViewHeight,
+                            left: 0,
+                            bottom: 10,
+                            right: 0)
+    }
 
-    let sectionInsets = UIEdgeInsets(top: 50.0,
-                                     left: 20.0,
-                                     bottom: 50.0,
-                                     right: 20.0)
+    let sectionInsets = UIEdgeInsets(top: 20,
+                                     left: 20,
+                                     bottom: 20,
+                                     right: 20)
 
     let itemSpacing: CGFloat = 20
     let lineSpacing: CGFloat = 25
+    let categoryFiltersViewHeight: CGFloat = 100
 
     let itemAspectRatio: CGFloat = 2/1
 

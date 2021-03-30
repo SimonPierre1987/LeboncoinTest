@@ -118,6 +118,6 @@ private extension ProductCollectionViewCell {
         stackView.distribution = .fill
         stackView.spacing = Constant.stackviewSpacing
         self.addSubview(stackView)
-        stackView.pintTo(self)
+        stackView.pinTo(self)
     }
 }

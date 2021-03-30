@@ -81,6 +81,6 @@ private extension IsUrgentView {
         stackView.alignment = .fill
         stackView.distribution = .fill
         self.addSubview(stackView)
-        stackView.pintTo(self)
+        stackView.pinTo(self)
     }
 }

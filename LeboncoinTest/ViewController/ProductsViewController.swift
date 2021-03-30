@@ -8,16 +8,19 @@
 import UIKit
 
 private enum Constant {
-   static let productCellIdentifer = "ProductCollectionViewCell"
+    static let productCellIdentifer = "ProductCollectionViewCell"
     static let defaultCellIdentifier = "UICollectionViewCell"
 }
 
 class ProductsViewController: UIViewController {
     // MARK: - Properties
     private let interactor: CategoryAndProductInteractor
+
     private var collectionView: UICollectionView?
     private let geometry = ProductsCollectionViewGeometry()
-    
+
+    private var categoryFiltersView: CategoryFiltersContainer?
+
     // MARK: - Init
     init(interactor: CategoryAndProductInteractor) {
         self.interactor = interactor
@@ -34,6 +37,7 @@ class ProductsViewController: UIViewController {
         setupViews()
         createCollectionView()
         configureCollectionView()
+        createFilterView()
         fetchAndDisplayProducts()
     }
 
@@ -56,9 +60,7 @@ extension ProductsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let productCell: ProductCollectionViewCell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Constant.productCellIdentifer,
-                for: indexPath) as? ProductCollectionViewCell else {
+        guard let productCell: ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.productCellIdentifer, for: indexPath) as? ProductCollectionViewCell else {
             let defaultCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.defaultCellIdentifier,
                                                                  for: indexPath)
             return defaultCell
@@ -83,6 +85,14 @@ private extension ProductsViewController {
     }
 }
 
+// MARK: - ProductFiltersContainerDelegate
+extension ProductsViewController: CategoryFiltersContainerDelegate {
+    func userDidSelect(filter: CategoryFilter) {
+        interactor.userDidSelectFilter(filter: filter)
+        collectionView?.reloadData()
+    }
+}
+
 // MARK: Data
 private extension ProductsViewController {
     func fetchAndDisplayProducts() {
@@ -96,6 +106,7 @@ private extension ProductsViewController {
                 strongSelf.display(error: error)
             case .success:
                 strongSelf.displayProducts()
+                strongSelf.displayCategoriesFilters()
             }
         }
     }
@@ -124,6 +135,10 @@ private extension ProductsViewController {
     func displayProducts() {
         collectionView?.reloadData()
     }
+
+    func displayCategoriesFilters() {
+        categoryFiltersView?.setup(with: interactor.categories, delegate: self)
+    }
 }
 
 private extension ProductsViewController {
@@ -139,7 +154,7 @@ private extension ProductsViewController {
         guard let collectionView = collectionView else { return }
         collectionView.backgroundColor = .white
         collectionViewContainer.addSubview(collectionView)
-        collectionView.pintTo(collectionViewContainer)
+        collectionView.pinTo(collectionViewContainer)
     }
 
     func configureCollectionView() {
@@ -148,6 +163,14 @@ private extension ProductsViewController {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constant.defaultCellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+
+    func createFilterView() {
+        categoryFiltersView = CategoryFiltersContainer(frame: CGRect.zero)
+        guard let categoryFiltersView = categoryFiltersView else { return }
+
+        view.addSubview(categoryFiltersView)
+        categoryFiltersView.pinToSafeArea(view, height: geometry.categoryFiltersViewHeight)
     }
 }
 

@@ -13,12 +13,14 @@ class CategoryAndProductInteractor {
     // MARK: - Properties
     private let productRepository: ProductsRepositoryProtocol
     private let categoryRepository: CategoriesRepositoryProtocol
-    private var currentFilter: ProductFilter = .none
+    private var currentFilter: CategoryFilter = .noFilter
     private var productsViewModels: [ProductViewModel] = []
+
+    private(set) var categories: [Category] = []
 
     var currentProducts: [ProductViewModel] {
         switch currentFilter {
-        case .none:
+        case .noFilter:
             return productsViewModels
         case let .filter(category: category):
             return productsViewModels.filter { $0.category == category}
@@ -35,12 +37,15 @@ class CategoryAndProductInteractor {
     // MARK: - Public Functions
     func start(_ completion: @escaping categoryAndProductCompletion) {
         self.fetchCategoriesAndProducts { [weak self] (result) in
-            self?.buildProductsViewModels()
+            guard let strongSelf = self else { return }
+
+            strongSelf.categories = strongSelf.categoryRepository.categories
+            strongSelf.buildProductsViewModels()
             completion(result)
         }
     }
 
-    func userDidSelectFilter(filter: ProductFilter) {
+    func userDidSelectFilter(filter: CategoryFilter) {
         self.currentFilter = filter
     }
 }

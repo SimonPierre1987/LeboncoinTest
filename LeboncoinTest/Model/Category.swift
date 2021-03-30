@@ -31,7 +31,7 @@ extension Category {
         case 2:
             return .brown
         case 3:
-            return .cyan
+            return .systemTeal
         case 4:
             return .darkGray
         case 5:
@@ -41,11 +41,11 @@ extension Category {
         case 7:
             return .red
         case 8:
-            return .yellow
+            return .systemYellow
         case 9:
-            return .black
+            return .systemRed
         case 10:
-            return .green
+            return .systemGreen
         case 11:
             return .lightGray
         default:

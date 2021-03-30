@@ -16,7 +16,7 @@ extension CategoryFilter {
     var displayName: String {
         switch self {
         case .noFilter:
-            return "Toutes les catégories"
+            return "Tout"
         case let .filter(category: category):
             return category.name
         }

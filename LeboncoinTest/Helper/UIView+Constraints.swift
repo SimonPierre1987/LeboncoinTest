@@ -9,6 +9,14 @@ import UIKit
 
 extension UIView {
 
+    func pinToSafeArea(_ view: UIView, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
+
     func pinTo(_ view: UIView, marging: UIEdgeInsets) {
         translatesAutoresizingMaskIntoConstraints = false
         topAnchor.constraint(equalTo: view.topAnchor, constant: marging.top).isActive = true
@@ -25,7 +33,7 @@ extension UIView {
         bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -marging.bottom).isActive = true
     }
 
-    func pintTo(_ view: UIView) {
+    func pinTo(_ view: UIView) {
         pinTo(view, marging: .zero)
     }
 
