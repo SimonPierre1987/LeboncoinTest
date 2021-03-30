@@ -52,7 +52,7 @@ class ProductsViewController: UIViewController {
 
 extension ProductsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return interactor.productsViewModels.count
+        return interactor.currentProducts.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,14 +64,14 @@ extension ProductsViewController: UICollectionViewDataSource {
             return defaultCell
         }
 
-        productCell.configure(with: interactor.productsViewModels[indexPath.row])
+        productCell.configure(with: interactor.currentProducts[indexPath.row])
         return productCell
     }
 }
 
 extension ProductsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        displayDetail(for: interactor.productsViewModels[indexPath.row])
+        displayDetail(for: interactor.currentProducts[indexPath.row])
     }
 }
 
