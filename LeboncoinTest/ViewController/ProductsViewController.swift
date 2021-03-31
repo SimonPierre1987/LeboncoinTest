@@ -90,6 +90,7 @@ extension ProductsViewController: CategoryFiltersContainerDelegate {
     func userDidSelect(filter: CategoryFilter) {
         interactor.userDidSelectFilter(filter: filter)
         collectionView?.reloadData()
+        collectionView?.setContentOffset(CGPoint.zero, animated: false)
     }
 }
 
@@ -181,7 +182,6 @@ extension ProductsViewController: UICollectionViewDelegateFlowLayout {
             guard let containerFrame = collectionView.superview?.frame else {
                 return CGSize.zero
             }
-
 
             let width = geometry.itemWidth(for: containerFrame.width)
             let height = width * geometry.itemAspectRatio
