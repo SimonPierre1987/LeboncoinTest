@@ -21,6 +21,17 @@ struct ProductViewModel {
     var convenientPrice: String {
         return "\(price) €"
     }
+
+    static let dateFormatter = DateFormatter()
+
+    var convenientDate: String {
+        ProductViewModel.dateFormatter.dateStyle = .short
+        return "Parue le \(ProductViewModel.dateFormatter.string(from: creationDate))"
+    }
+
+    var offerType: String? {
+        return siret == nil ? "Annonce d'un particulier" : "Annonce professionelle"
+    }
 }
 
 extension ProductViewModel: Comparable {
