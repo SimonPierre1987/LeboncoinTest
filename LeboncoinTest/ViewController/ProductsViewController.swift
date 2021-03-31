@@ -20,6 +20,7 @@ class ProductsViewController: UIViewController {
     private let geometry = ProductsCollectionViewGeometry()
 
     private var categoryFiltersView: CategoryFiltersContainer?
+    private var loadingView: LoadingView?
 
     // MARK: - Init
     init(interactor: CategoryAndProductInteractor) {
@@ -122,11 +123,12 @@ private extension ProductsViewController {
     }
 
     func startLoading() {
-        // TODO
+        loadingView = LoadingView.showLoading(in: self.view)
     }
 
     func endLoading() {
-        // TODO
+        guard let loadingView = loadingView else { return }
+        LoadingView.hide(loadingView: loadingView)
     }
 
     func display(error: LeboncoinError) {
