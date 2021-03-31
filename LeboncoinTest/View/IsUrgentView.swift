@@ -48,7 +48,7 @@ private extension IsUrgentView {
         setupIsUrgentLabel()
         setupStackView()
     }
-    
+
     func setupIsUrgentLabel() {
         isUrgentLabelContainer = UIView(frame: CGRect.zero)
         isUrgentLabel = UILabel(frame: CGRect.zero)
