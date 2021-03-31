@@ -8,17 +8,28 @@
 import Foundation
 import UIKit
 
-class UIImageFetcher {
+protocol UIImageFetcherProtocol {
+    func fetchImage(at url: URL, for imageView: UIImageView)
+    func cancelImageFetch(for imageView: UIImageView)
+}
+
+class UIImageFetcher: UIImageFetcherProtocol {
     // MARK: - Properties
-    static let sharedInstance = UIImageFetcher()
-    private let imageFetcher = ImageFetcher()
-    private var uuidMap: [UIImageView: UUID] = [:]
+    static let sharedInstance = UIImageFetcher(imageFetcher: ImageFetcher.sharedInstance)
+    private let imageFetcher: ImageFetcherProtocol
+    private var uuidMap: [ImageWrapper: UUID] = [:]
 
-    // MARK: - Public Functions
+    // MARK: - Init
+    init(imageFetcher: ImageFetcherProtocol) {
+        self.imageFetcher = imageFetcher
+    }
+
+    // MARK: - UIImageFetcherProtocol
     func fetchImage(at url: URL, for imageView: UIImageView) {
-        let token = imageFetcher.fetchImage(at: url) { result in
+        let imageWrapper = ImageWrapper(imageView: imageView)
 
-            defer { self.uuidMap.removeValue(forKey: imageView) }
+        let token = imageFetcher.fetchImage(at: url) { result in
+            defer { self.uuidMap.removeValue(forKey: imageWrapper) }
 
             switch result {
             case let .success(image):
@@ -31,24 +42,33 @@ class UIImageFetcher {
         }
 
         if let token = token {
-            uuidMap[imageView] = token
+            uuidMap[imageWrapper] = token
         }
     }
 
     func cancelImageFetch(for imageView: UIImageView) {
-        if let uuid = uuidMap[imageView] {
+        let imageWrapper = ImageWrapper(imageView: imageView)
+
+        if let uuid = uuidMap[imageWrapper] {
             imageFetcher.cancelImageFetch(uuid)
-            uuidMap.removeValue(forKey: imageView)
+            uuidMap.removeValue(forKey: imageWrapper)
         }
     }
 }
 
-private class ImageFetcher {
+protocol ImageFetcherProtocol {
+    func fetchImage(at url: URL,
+                    _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID?
+    func cancelImageFetch(_ uuid: UUID)
+}
+
+private class ImageFetcher: ImageFetcherProtocol {
     // MARK: - Properties
+    static let sharedInstance = ImageFetcher()
     private let imageCache = NSCache<NSString, UIImage>()
     private var runningRequests: [UUID: URLSessionDataTask] = [:]
 
-    // MARK: - Functions
+    // MARK: - ImageFetcherProtocol
     func fetchImage(at url: URL,
                     _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
 
@@ -83,5 +103,30 @@ private class ImageFetcher {
     func cancelImageFetch(_ uuid: UUID) {
       runningRequests[uuid]?.cancel()
       runningRequests.removeValue(forKey: uuid)
+    }
+}
+
+/* The wrapper prevents the imageView from being retain */
+private class ImageWrapper: Hashable {
+    // MARK: - Properties
+    weak var imageView: UIImageView?
+
+    // MARK: - Init
+    init(imageView: UIImageView) {
+        self.imageView = imageView
+    }
+
+    // MARK: - Hashable
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(imageView)
+    }
+
+    static func == (lhs: ImageWrapper, rhs: ImageWrapper) -> Bool {
+        guard let lhsImageView = lhs.imageView,
+              let rhsImageView = rhs.imageView else {
+            return false
+        }
+
+        return lhsImageView.hashValue == rhsImageView.hashValue
     }
 }
