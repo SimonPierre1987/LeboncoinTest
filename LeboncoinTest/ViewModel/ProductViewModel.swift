@@ -45,6 +45,6 @@ extension ProductViewModel: Comparable {
 struct ProductImagesViewModel {
     let smallImageURL: URL?
     let thumbnailURL: URL?
-    let compulsoryImageURL: URL // thumbnailURL if it exists or smallImageURL
+    let lowerSizeImageURL: URL // smallImageURL if it exists or thumbnailURL
 }
 

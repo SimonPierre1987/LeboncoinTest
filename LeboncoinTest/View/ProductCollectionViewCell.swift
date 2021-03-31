@@ -46,7 +46,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     func configure(with product: ProductViewModel) {
         productTitleLabel.text = product.title.uppercased()
         productPriceLabel.text = product.convenientPrice.uppercased()
-        productImageView.fetchImage(at: product.imagesURL.compulsoryImageURL)
+        productImageView.fetchImage(at: product.imagesURL.lowerSizeImageURL)
         isUrgentView.setup(isUrgent: product.isUrgent)
         stackView.setNeedsLayout()
     }
