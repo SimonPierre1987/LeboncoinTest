@@ -14,7 +14,7 @@ private enum Constant {
 
 class LoadingView: UIView {
     // MARK: - Properties
-    let loader: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
+    private let loader: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
 
     // MARK: Init
     override init(frame: CGRect) {
@@ -28,7 +28,7 @@ class LoadingView: UIView {
 
     // MARK: - Public Functions
     static func showLoading(in view: UIView) -> LoadingView {
-        let loadingView = LoadingView(frame: .zero)
+        let loadingView = LoadingView()
         view.addSubview(loadingView)
         loadingView.pinTo(view)
         loadingView.loader.startAnimating()

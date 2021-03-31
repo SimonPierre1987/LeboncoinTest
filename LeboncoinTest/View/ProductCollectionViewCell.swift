@@ -17,11 +17,11 @@ private enum Constant {
 
 class ProductCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
-    private var productImageView: UIImageView?
-    private var productTitleLabel: UILabel?
-    private var productPriceLabel: UILabel?
-    private var isUrgentView: IsUrgentView?
-    private var stackView: UIStackView?
+    private let productImageView = UIImageView()
+    private let productTitleLabel = UILabel()
+    private let productPriceLabel = UILabel()
+    private let isUrgentView = IsUrgentView()
+    private let stackView: UIStackView = UIStackView()
 
     // MARK: - Init
     override init(frame: CGRect) {
@@ -35,20 +35,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Life Cycle
     override func prepareForReuse() {
-        productImageView?.cancelImageFetch()
-        productImageView?.image = UIImage(named: Constant.productImagePlaceholder)
-        productPriceLabel?.text = nil
-        productTitleLabel?.text = nil
-        isUrgentView?.setup(isUrgent: false)
+        productImageView.cancelImageFetch()
+        productImageView.image = UIImage(named: Constant.productImagePlaceholder)
+        productPriceLabel.text = nil
+        productTitleLabel.text = nil
+        isUrgentView.setup(isUrgent: false)
     }
 
     // MARK: - Public Functions
     func configure(with product: ProductViewModel) {
-        productTitleLabel?.text = product.title.uppercased()
-        productPriceLabel?.text = product.convenientPrice.uppercased()
-        productImageView?.fetchImage(at: product.imagesURL.compulsoryImageURL)
-        isUrgentView?.setup(isUrgent: product.isUrgent)
-        stackView?.setNeedsLayout()
+        productTitleLabel.text = product.title.uppercased()
+        productPriceLabel.text = product.convenientPrice.uppercased()
+        productImageView.fetchImage(at: product.imagesURL.compulsoryImageURL)
+        isUrgentView.setup(isUrgent: product.isUrgent)
+        stackView.setNeedsLayout()
     }
 }
 
@@ -58,14 +58,10 @@ private extension ProductCollectionViewCell {
         setupImageView()
         setupTitle()
         setupPriceLabel()
-        setupIsUrgentView()
         setupStackView()
     }
 
     func setupImageView() {
-        productImageView = UIImageView(frame: .zero)
-        guard let productImageView = productImageView else { return }
-
         productImageView.image = UIImage(named: Constant.productImagePlaceholder)
         productImageView.contentMode = .scaleAspectFill
         productImageView.clipsToBounds = true
@@ -74,23 +70,13 @@ private extension ProductCollectionViewCell {
     }
 
     func setupTitle() {
-        productTitleLabel = UILabel(frame: .zero)
-        guard let productTitleLabel = productTitleLabel else { return }
-
         productTitleLabel.numberOfLines = 2
         productTitleLabel.font = UIFont.boldSystemFont(ofSize: Constant.fontSize)
         productTitleLabel.lineBreakMode = .byTruncatingTail
         productTitleLabel.allowsDefaultTighteningForTruncation = true
     }
 
-    func setupIsUrgentView() {
-        isUrgentView = IsUrgentView(frame: .zero)
-    }
-
     func setupPriceLabel() {
-        productPriceLabel = UILabel(frame: .zero)
-        guard let productPriceLabel = productPriceLabel else { return }
-
         productPriceLabel.numberOfLines = 1
         productPriceLabel.font = UIFont.systemFont(ofSize: Constant.fontSize)
         productPriceLabel.textColor = .orange
@@ -99,19 +85,12 @@ private extension ProductCollectionViewCell {
     }
 
     func setupStackView() {
-        guard let productImageView = productImageView,
-              let productTitleLabel = productTitleLabel,
-              let productPriceLabel = productPriceLabel,
-              let isUrgentView = isUrgentView else {
-            return
-        }
-
-        stackView = UIStackView(arrangedSubviews: [productImageView,
-                                                   productTitleLabel,
-                                                   productPriceLabel,
-                                                   UIView(),
-                                                   isUrgentView])
-        guard let stackView = stackView else { return }
+        _ = [productImageView,
+         productTitleLabel,
+         productPriceLabel,
+         UIView(),
+         isUrgentView]
+            .map { stackView.addArrangedSubview($0) }
 
         stackView.axis = .vertical
         stackView.alignment = .fill

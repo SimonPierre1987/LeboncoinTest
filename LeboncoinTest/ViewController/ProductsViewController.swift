@@ -181,7 +181,7 @@ private extension ProductsViewController {
     }
 
     func createFilterView() {
-        categoryFiltersView = CategoryFiltersContainer(frame: .zero)
+        categoryFiltersView = CategoryFiltersContainer()
         guard let categoryFiltersView = categoryFiltersView else { return }
 
         view.addSubview(categoryFiltersView)

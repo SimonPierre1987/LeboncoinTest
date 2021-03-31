@@ -13,9 +13,9 @@ private enum Constant {
 
 class IsUrgentView: UIView {
     // MARK: - Properties
-    private var isUrgentLabel: UILabel?
-    private var isUrgentLabelContainer: UIView?
-    private var stackView: UIStackView?
+    private let isUrgentLabel = UILabel()
+    private let isUrgentLabelContainer = UIView()
+    private let stackView = UIStackView()
 
     // MARK: Init
     override init(frame: CGRect) {
@@ -29,15 +29,13 @@ class IsUrgentView: UIView {
 
     // MARK: Life Cycle
     override func layoutSubviews() {
-        guard let isUrgentLabelContainer = isUrgentLabelContainer else { return }
-
         isUrgentLabelContainer.layer.cornerRadius = frame.size.height / 2
     }
 
     // MARK: - Public Functions
     func setup(isUrgent: Bool) {
-        isUrgentLabel?.text = isUrgent ? "Urgent" : ""
-        isUrgentLabelContainer?.isHidden = !isUrgent
+        isUrgentLabel.text = isUrgent ? "Urgent" : ""
+        isUrgentLabelContainer.isHidden = !isUrgent
     }
 }
 
@@ -50,11 +48,6 @@ private extension IsUrgentView {
     }
 
     func setupIsUrgentLabel() {
-        isUrgentLabelContainer = UIView(frame: .zero)
-        isUrgentLabel = UILabel(frame: .zero)
-        guard let isUrgentLabel = isUrgentLabel,
-              let isUrgentLabelContainer = isUrgentLabelContainer else { return }
-
         isUrgentLabel.numberOfLines = 1
         isUrgentLabel.font = UIFont.systemFont(ofSize: Constant.fontSize)
         isUrgentLabel.textColor = .white
@@ -72,11 +65,8 @@ private extension IsUrgentView {
     }
 
     func setupStackView() {
-        guard let isUrgentLabelContainer = isUrgentLabelContainer else { return }
-
-        stackView = UIStackView(arrangedSubviews: [isUrgentLabelContainer, UIView()])
-        guard let stackView = stackView else { return }
-
+        stackView.addArrangedSubview(isUrgentLabelContainer)
+        stackView.addArrangedSubview(UIView())
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fill
