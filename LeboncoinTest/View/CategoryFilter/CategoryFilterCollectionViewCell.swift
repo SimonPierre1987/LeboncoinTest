@@ -39,7 +39,7 @@ private extension CategoryFilterCollectionViewCell {
     func setupViews() {
         backgroundColor = .clear
         layer.borderWidth = 1.0
-        filterLabel = UILabel.init(frame: CGRect.zero)
+        filterLabel = UILabel.init(frame: .zero)
         guard let filterLabel = filterLabel else { return }
 
         filterLabel.font = UIFont.systemFont(ofSize: 17)

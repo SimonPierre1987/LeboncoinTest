@@ -165,7 +165,7 @@ private extension ProductsViewController {
 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 
-        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else { return }
         collectionView.backgroundColor = .white
         collectionViewContainer.addSubview(collectionView)
@@ -181,7 +181,7 @@ private extension ProductsViewController {
     }
 
     func createFilterView() {
-        categoryFiltersView = CategoryFiltersContainer(frame: CGRect.zero)
+        categoryFiltersView = CategoryFiltersContainer(frame: .zero)
         guard let categoryFiltersView = categoryFiltersView else { return }
 
         view.addSubview(categoryFiltersView)

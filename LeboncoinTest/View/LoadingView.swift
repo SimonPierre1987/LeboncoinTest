@@ -28,7 +28,7 @@ class LoadingView: UIView {
 
     // MARK: - Public Functions
     static func showLoading(in view: UIView) -> LoadingView {
-        let loadingView = LoadingView(frame: CGRect.zero)
+        let loadingView = LoadingView(frame: .zero)
         view.addSubview(loadingView)
         loadingView.pinTo(view)
         loadingView.loader.startAnimating()

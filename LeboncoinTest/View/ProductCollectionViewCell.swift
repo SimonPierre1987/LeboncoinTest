@@ -63,7 +63,7 @@ private extension ProductCollectionViewCell {
     }
 
     func setupImageView() {
-        productImageView = UIImageView(frame: CGRect.zero)
+        productImageView = UIImageView(frame: .zero)
         guard let productImageView = productImageView else { return }
 
         productImageView.image = UIImage(named: Constant.productImagePlaceholder)
@@ -74,7 +74,7 @@ private extension ProductCollectionViewCell {
     }
 
     func setupTitle() {
-        productTitleLabel = UILabel(frame: CGRect.zero)
+        productTitleLabel = UILabel(frame: .zero)
         guard let productTitleLabel = productTitleLabel else { return }
 
         productTitleLabel.numberOfLines = 2
@@ -84,11 +84,11 @@ private extension ProductCollectionViewCell {
     }
 
     func setupIsUrgentView() {
-        isUrgentView = IsUrgentView(frame: CGRect.zero)
+        isUrgentView = IsUrgentView(frame: .zero)
     }
 
     func setupPriceLabel() {
-        productPriceLabel = UILabel(frame: CGRect.zero)
+        productPriceLabel = UILabel(frame: .zero)
         guard let productPriceLabel = productPriceLabel else { return }
 
         productPriceLabel.numberOfLines = 1

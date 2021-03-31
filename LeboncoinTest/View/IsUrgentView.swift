@@ -50,8 +50,8 @@ private extension IsUrgentView {
     }
 
     func setupIsUrgentLabel() {
-        isUrgentLabelContainer = UIView(frame: CGRect.zero)
-        isUrgentLabel = UILabel(frame: CGRect.zero)
+        isUrgentLabelContainer = UIView(frame: .zero)
+        isUrgentLabel = UILabel(frame: .zero)
         guard let isUrgentLabel = isUrgentLabel,
               let isUrgentLabelContainer = isUrgentLabelContainer else { return }
 
