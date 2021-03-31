@@ -16,12 +16,12 @@ protocol ProductsRepositoryProtocol {
 
 class ProductsRepository: ProductsRepositoryProtocol {
     // MARK: - Properties
-    private let fetcher: Fetcher
+    private let fetcher: FetcherProtocol
     private let productsUrlString = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
     var products: [Product] = []
 
     // MARK: - Init
-    init(fetcher: Fetcher) {
+    init(fetcher: FetcherProtocol) {
         self.fetcher = fetcher
     }
     

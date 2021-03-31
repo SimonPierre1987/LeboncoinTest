@@ -33,6 +33,7 @@
 		EBAB7BE42611F8E700A2F6AD /* ProductMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */; };
 		EBAB7BE926120F0B00A2F6AD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */; };
 		EBAB7BEF2612133C00A2F6AD /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAB7BEE2612133C00A2F6AD /* UIView+Constraints.swift */; };
+		EBD884132614723900D05247 /* LeboncoinError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD884122614723900D05247 /* LeboncoinError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		EBAB7BE32611F8E600A2F6AD /* ProductMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapper.swift; sourceTree = "<group>"; };
 		EBAB7BE826120F0B00A2F6AD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		EBAB7BEE2612133C00A2F6AD /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		EBD884122614723900D05247 /* LeboncoinError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeboncoinError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				EBAB7B932611C0D400A2F6AD /* Category.swift */,
 				EBAB7B9B2611C2BB00A2F6AD /* Product.swift */,
 				EB73E4C426135A7B003E207C /* CategoryFilter.swift */,
+				EBD884122614723900D05247 /* LeboncoinError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				EBAB7BA22611C4A000A2F6AD /* CategoriesRepository.swift in Sources */,
 				EBAB7B9C2611C2BB00A2F6AD /* Product.swift in Sources */,
 				EBAB7BE926120F0B00A2F6AD /* ProductDetailViewController.swift in Sources */,
+				EBD884132614723900D05247 /* LeboncoinError.swift in Sources */,
 				EB73E4CA26136190003E207C /* CategoryFiltersContainer.swift in Sources */,
 				EBAB7BDD2611F7FE00A2F6AD /* ProductViewModel.swift in Sources */,
 				EB73E4C026134DBC003E207C /* ProductsCollectionViewGeometry.swift in Sources */,

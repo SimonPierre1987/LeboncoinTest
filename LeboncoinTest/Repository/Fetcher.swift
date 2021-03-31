@@ -7,16 +7,13 @@
 
 import Foundation
 
-enum LeboncoinError: Error {
-    case badURLFormat
-    case badHTTPResponse
-    case missingData
-    case parsingError(localizedDescription: String)
-    case other(localizedDescription: String)
+protocol FetcherProtocol {
+    func get<T: Decodable>(_ type: T.Type, at urlString: String,
+                           _ completion: @escaping (Result<T, LeboncoinError>) -> Void)
 }
 
-class Fetcher {
-    // MARK: - Public Functions
+class Fetcher: FetcherProtocol {
+    // MARK: - FetcherProtocol
     func get<T: Decodable>(_ type: T.Type, at urlString: String,
                          _ completion: @escaping (Result<T, LeboncoinError>) -> Void) {
         getDataOnMainThread(at: urlString) { (result) in

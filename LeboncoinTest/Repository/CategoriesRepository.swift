@@ -17,11 +17,11 @@ protocol CategoriesRepositoryProtocol {
 class CategoriesRepository: CategoriesRepositoryProtocol {
     // MARK: - Properties
     private let categoryUrlString = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
-    private let fetcher: Fetcher
+    private let fetcher: FetcherProtocol
     var categories: [Category] = []
 
     // MARK: - Init
-    init(fetcher: Fetcher) {
+    init(fetcher: FetcherProtocol) {
         self.fetcher = fetcher
     }
 
