@@ -7,14 +7,6 @@
 
 import Foundation
 
-/** In my implementation `Mappers` are responsible of some business logic. Explanation:
- Rest `Models` like `Product` and `Category` must be the exact image of the fetch data:
- type are the same, name are in camelCase however.
- `ViewModel` are built from `Models` but the rules that give the minimum requirement
- for a `viewModel` to exist are in the mapper
- That's why `Mappers` do have some business logic.
-*/
-
 class ProductMapper {
     private static let dateFormatter = ISO8601DateFormatter()
 
