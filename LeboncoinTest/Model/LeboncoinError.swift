@@ -16,6 +16,10 @@ enum LeboncoinError: Error {
 }
 
 extension LeboncoinError {
+    static let errorTitle: String = "An error occured"
+    static let retryTitle: String = "Retry"
+    static let cancelTitle: String = "Cancel"
+    
     var errorDisplayText: String {
         switch self  {
         case .badURLFormat:

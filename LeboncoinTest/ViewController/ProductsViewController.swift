@@ -130,7 +130,19 @@ private extension ProductsViewController {
     }
 
     func display(error: LeboncoinError) {
-        // TODO
+        let alertView = UIAlertController(title: LeboncoinError.errorTitle,
+                                          message: error.errorDisplayText,
+                                          preferredStyle: .alert)
+        let retryAction = UIAlertAction(title: LeboncoinError.retryTitle,
+                                        style: .default) { [weak self] (_) in
+            self?.fetchAndDisplayProducts()
+        }
+        let cancelAction = UIAlertAction(title: LeboncoinError.cancelTitle,
+                                         style: .cancel,
+                                         handler: nil)
+        alertView.addAction(retryAction)
+        alertView.addAction(cancelAction)
+        present(alertView, animated: true, completion: nil)
     }
 
     func displayProducts() {
