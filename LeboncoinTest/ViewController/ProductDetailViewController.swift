@@ -10,6 +10,7 @@ import UIKit
 private enum Constant {
     static let productImageCornerRadius: CGFloat = 5.0
     static let stackviewSpacing: CGFloat = 20
+    static let horizontalstackviewSpacing: CGFloat = 5
     static let fontSize: CGFloat = 15
     static let smallfontSize: CGFloat = 10
     static let productImagePlaceholder = "Placeholder"
@@ -90,16 +91,16 @@ private extension ProductDetailViewController {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = Constant.stackviewSpacing
-        let secondHorizontalStackView = horizontalStackView()
-        _ = [isUrgentView, titleLabel].map({ secondHorizontalStackView.addArrangedSubview($0) })
-        let thirdHorizontalStackView = horizontalStackView()
-        _ = [UIView(), creationDateLabel].map({ thirdHorizontalStackView.addArrangedSubview($0) })
+
+        let horizontalStack = horizontalStackView()
+        _ = [isUrgentView,
+             creationDateLabel].map({ horizontalStack.addArrangedSubview($0) })
 
         _ = [productImageView,
-             secondHorizontalStackView,
+             titleLabel,
+             horizontalStack,
              priceLabel,
-             descriptionLabel,
-             thirdHorizontalStackView].map({ stackView.addArrangedSubview($0) })
+             descriptionLabel].map({ stackView.addArrangedSubview($0) })
     }
 
     func setupImageView() {
@@ -117,10 +118,12 @@ private extension ProductDetailViewController {
     }
 
     func setupTitleLabel() {
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.boldSystemFont(ofSize: Constant.fontSize)
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.allowsDefaultTighteningForTruncation = true
+        titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        titleLabel.minimumScaleFactor = 0.5
     }
 
     func setupDateLabel() {
@@ -143,7 +146,7 @@ private extension ProductDetailViewController {
         horizontalStackView.axis = .horizontal
         horizontalStackView.alignment = .fill
         horizontalStackView.distribution = .fill
-        horizontalStackView.spacing = Constant.stackviewSpacing
+        horizontalStackView.spacing = Constant.horizontalstackviewSpacing
         return horizontalStackView
     }
 }
