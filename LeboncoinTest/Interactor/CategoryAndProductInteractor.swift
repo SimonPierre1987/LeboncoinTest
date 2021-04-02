@@ -9,7 +9,14 @@ import Foundation
 
 typealias categoryAndProductCompletion = (Result<Bool, LeboncoinError>) -> Void
 
-class CategoryAndProductInteractor {
+protocol CategoryAndProductInteractorProtocol {
+    func start(_ completion: @escaping categoryAndProductCompletion)
+    func userDidSelectFilter(filter: CategoryFilter)
+    var categories: [Category] { get }
+    var currentProducts: [ProductViewModel] { get }
+}
+
+class CategoryAndProductInteractor: CategoryAndProductInteractorProtocol {
     // MARK: - Properties
     private let productRepository: ProductsRepositoryProtocol
     private let categoryRepository: CategoriesRepositoryProtocol
@@ -34,7 +41,7 @@ class CategoryAndProductInteractor {
         categoryRepository = CategoriesRepository(fetcher: fetcher)
     }
 
-    // MARK: - Public Functions
+    // MARK: - CategoryAndProductInteractorProtocol
     func start(_ completion: @escaping categoryAndProductCompletion) {
         self.fetchCategoriesAndProducts { [weak self] (result) in
             guard let strongSelf = self else { return }

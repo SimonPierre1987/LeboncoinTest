@@ -14,7 +14,7 @@ private enum Constant {
 
 class ProductsViewController: UIViewController {
     // MARK: - Properties
-    private let interactor: CategoryAndProductInteractor
+    private let interactor: CategoryAndProductInteractorProtocol
 
     private var collectionView: UICollectionView?
     private let geometry = ProductsCollectionViewGeometry()
@@ -23,7 +23,7 @@ class ProductsViewController: UIViewController {
     private var loadingView: LoadingView?
 
     // MARK: - Init
-    init(interactor: CategoryAndProductInteractor) {
+    init(interactor: CategoryAndProductInteractorProtocol) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
