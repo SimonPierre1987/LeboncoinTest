@@ -123,6 +123,7 @@ private extension ProductDetailViewController {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.allowsDefaultTighteningForTruncation = true
         titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
     }
 

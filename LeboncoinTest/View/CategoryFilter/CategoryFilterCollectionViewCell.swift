@@ -38,15 +38,22 @@ class CategoryFilterCollectionViewCell: UICollectionViewCell {
 
 private extension CategoryFilterCollectionViewCell {
     func setupViews() {
+
+        let container = UIView()
+        self.addSubview(container)
+        container.pinTo(self)
+
         backgroundColor = .clear
         layer.borderWidth = 1.0
         filterLabel.font = UIFont.systemFont(ofSize: 17)
         filterLabel.textAlignment = .center
-        filterLabel.numberOfLines = 2
-        filterLabel.lineBreakMode = .byWordWrapping
+        filterLabel.numberOfLines = 1
+        filterLabel.lineBreakMode = .byClipping
         filterLabel.allowsDefaultTighteningForTruncation = true
-        addSubview(filterLabel)
-        filterLabel.pinTo(self, marging: .zero)
+        filterLabel.minimumScaleFactor = 0.2
+        filterLabel.adjustsFontSizeToFitWidth = true
+        container.addSubview(filterLabel)
+        filterLabel.pinTo(container, marging: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     }
 }
 
