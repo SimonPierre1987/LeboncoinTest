@@ -16,10 +16,13 @@ class ProductsViewController: UIViewController {
     // MARK: - Properties
     private let interactor: CategoryAndProductInteractorProtocol
 
-    private var collectionView: UICollectionView?
+    private let productCollectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout())
+
     private let geometry = ProductsCollectionViewGeometry()
 
-    private var categoryFiltersView: CategoryFiltersContainer?
+    private let categoryFiltersView = CategoryFiltersContainer()
     private var loadingView: LoadingView?
 
     // MARK: - Init
@@ -36,22 +39,17 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        createCollectionView()
+        setupProductCollectionView()
         configureCollectionView()
-        createFilterView()
+        setupFilterView()
         fetchAndDisplayProducts()
     }
 
     override func viewWillTransition(to size: CGSize,
                                      with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-
-        guard let collectionView = collectionView else { return }
-
-        coordinator.animate(
-            alongsideTransition: { _ in collectionView.collectionViewLayout.invalidateLayout() },
-            completion: { _ in }
-        )
+        coordinator.animate(alongsideTransition: { [weak self] _  in self?.productCollectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
     }
 }
 
@@ -90,8 +88,8 @@ private extension ProductsViewController {
 extension ProductsViewController: CategoryFiltersContainerDelegate {
     func userDidSelect(filter: CategoryFilter) {
         interactor.userDidSelectFilter(filter: filter)
-        collectionView?.reloadData()
-        collectionView?.setContentOffset(CGPoint.zero, animated: false)
+        productCollectionView.reloadData()
+        productCollectionView.setContentOffset(.zero, animated: false)
     }
 }
 
@@ -148,42 +146,34 @@ private extension ProductsViewController {
     }
 
     func displayProducts() {
-        collectionView?.reloadData()
+        productCollectionView.reloadData()
     }
 
     func displayCategoriesFilters() {
-        categoryFiltersView?.setup(with: interactor.categories, delegate: self)
+        categoryFiltersView.setup(with: interactor.categories, delegate: self)
     }
 }
 
 private extension ProductsViewController {
-    func createCollectionView() {
+    func setupProductCollectionView() {
         let collectionViewContainer = UIView()
         collectionViewContainer.backgroundColor = .white
         view.addSubview(collectionViewContainer)
         collectionViewContainer.pinToSafeArea(view, marging: geometry.collectionViewContainerInsets)
 
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        guard let collectionView = collectionView else { return }
-        collectionView.backgroundColor = .white
-        collectionViewContainer.addSubview(collectionView)
-        collectionView.pinTo(collectionViewContainer)
+        productCollectionView.backgroundColor = .white
+        collectionViewContainer.addSubview(productCollectionView)
+        productCollectionView.pinTo(collectionViewContainer)
     }
 
     func configureCollectionView() {
-        guard let collectionView = collectionView else { return }
-        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constant.productCellIdentifer)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constant.defaultCellIdentifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        productCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constant.productCellIdentifer)
+        productCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constant.defaultCellIdentifier)
+        productCollectionView.delegate = self
+        productCollectionView.dataSource = self
     }
 
-    func createFilterView() {
-        categoryFiltersView = CategoryFiltersContainer()
-        guard let categoryFiltersView = categoryFiltersView else { return }
-
+    func setupFilterView() {
         view.addSubview(categoryFiltersView)
         categoryFiltersView.pinToSafeArea(view, height: geometry.categoryFiltersViewHeight)
     }
